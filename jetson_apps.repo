@@ -1,0 +1,29 @@
+repositories:
+  isaac_ros_common:
+    type: git
+    url: https://github.com/dirksavage88/isaac_ros_common.git
+    version: b1b6d923b6647a1bbc1ac74245f6fdcf5a7ec290
+  isaac_ros_image_pipeline:
+    type: git
+    url: https://github.com/dirksavage88/isaac_ros_image_pipeline.git
+    version: 8ae0cc7f212dc60084ca1e725c660456c2783fa3
+  isaac_ros_apriltag:
+    type: git
+    url: https://github.com/dirksavage88/isaac_ros_apriltag.git
+    version: 86a51209808cde3e7dea300d9fe75f209ebc7e84
+  isaac_ros_visual_slam:
+    type: git
+    url: https://github.com/dirksavage88/isaac_ros_visual_slam.git
+    version: 642c66906042a34690fb9e8481dd2c2819319c1e
+  ros2_usb_camera:
+    type: git
+    url: https://github.com/dirksavage88/ros2_usb_camera.git
+    version: 4b8dad8e0d13c87446b91fc13f68992192cd79cb
+  side_x_side_stereo:
+    type: git
+    url: https://github.com/dirksavage88/side_x_side_stereo.git
+    version: 1404a848e98c5ba56460cc34a7f6fd68d0279e74
+  Micro-XRCE-DDS-Agent:
+    type: git
+    url: https://github.com/dirksavage88/Micro-XRCE-DDS-Agent.git
+    version: 57d086216d01ec43121845d385894a25987f8a2c
