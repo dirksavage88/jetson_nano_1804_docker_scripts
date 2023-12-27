@@ -49,7 +49,7 @@ sudo apt install -y curl
 sudo apt-get install -y nvidia-container-toolkit
 sudo apt-get install -y nvidia-docker2
 
-sudo tee -a /etc/docker/daemon.json > /dev/null <<EOT 
+sudo tee -a /etc/docker/daemon.json > /dev/null <<EOT
 {
     "runtimes": {
         "nvidia": {
@@ -67,10 +67,12 @@ sudo systemctl daemon-reload && sudo systemctl restart docker
 sudo apt install -y git-lfs
 sudo apt install -y nvidia-l4t-jetson-multimedia-api
 sudo apt install -y nvidia-cudnn8
-sudo apt install -y libcufft-dev-10-2 
+sudo apt install -y libcufft-dev-10-2
+# Required for cublas libs which vslam is dependent on
+sudo apt install -y cuda-toolkit-10-2
 
 # setting up ROS 2 workspace
-mkdir -p $HOME/workspaces/isaac_ros-dev/ros_ws 
+mkdir -p $HOME/workspaces/isaac_ros-dev/ros_ws
 cd $HOME/workspaces/isaac_ros-dev/ros_ws && sudo vcs import --recursive < $CWD/jetson_apps.repo
 echo "Done installing ros2 workspace..."
 echo "Setup the stable repo and GPG key..."
@@ -82,5 +84,6 @@ curl -s -L https://nvidia.github.io/nvidia-container-runtime/experimental/$distr
 echo "Starting ros 2 foxy docker bringup..."
 cd $HOME/workspaces/isaac_ros-dev/ros_ws/isaac_ros_apriltag/ && git-lfs pull
 cd $HOME/workspaces/isaac_ros-dev/ros_ws/isaac_ros_visual_slam/ && git-lfs pull
+cd $HOME/workspaces/isaac_ros-dev/ros_ws/isaac_ros_visual_slam/isaac_ros_visual_slam && git-lfs pull
 cd $HOME/workspaces/isaac_ros-dev/ros_ws/isaac_ros_image_pipeline/ && git-lfs pull
 cd $HOME/workspaces/isaac_ros-dev/ros_ws/isaac_ros_common/ && git-lfs pull
