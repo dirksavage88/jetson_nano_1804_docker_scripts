@@ -9,7 +9,7 @@ Step 1) Clone the repo into your home directory.
 
 Step 2) Copy all install scripts into ~/workspaces/isaac_ros-dev. You should already have this folder if you have followed the Issac ROS common repo instructions.
 
-Step 3) run the command 'sudo chmod +rwx *.sh'
+Step 3) change directories to ~/workspaces/isaac_ros-dev and run the command 'sudo chmod +rwx *.sh'
 
 Step 4) run the command './jetson_nano_bringup.sh', this takes a while the first time through
 
