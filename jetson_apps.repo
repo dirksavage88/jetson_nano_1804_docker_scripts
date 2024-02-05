@@ -23,7 +23,19 @@ repositories:
     type: git
     url: https://github.com/dirksavage88/side_x_side_stereo.git
     version: 1404a848e98c5ba56460cc34a7f6fd68d0279e74
-  Micro-XRCE-DDS-Agent:
+  imu_transform:
     type: git
-    url: https://github.com/dirksavage88/Micro-XRCE-DDS-Agent.git
-    version: 57d086216d01ec43121845d385894a25987f8a2c
+    url: https://github.com/dakejahl/imu_transform.git
+    version: 33a32da562ed62af21dd39d4284ab7fc1079c8b0
+  PX4-Isaac-VIO-bridge:
+    type: git
+    url: https://github.com/ARK-Electronics/PX4-Isaac-VIO-bridge.git
+    version: 75314ce290e649d48858603ec4776b6b8a40d539
+  px4_msgs:
+    type: git
+    url: https://github.com/PX4/px4_msgs.git
+    version: 820b0db5414dad89d49dbb1b65a3e311a2f7f418
+  image_common:
+    type: git
+    url: https://github.com/ros-perception/image_common.git
+    version: aa987ea9d053b1895fb4bf62d3e0eade060b9612

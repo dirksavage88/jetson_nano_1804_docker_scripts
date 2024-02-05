@@ -1,5 +1,5 @@
 # jetson_nano_1804_docker_scripts
-Bring up ROS 2 foxy and docker on the original Jetson Nano 
+Bring up ROS 2 foxy and docker on the original Jetson Nano
 
 This repo is assuming you are using a recent version of Jetpack (tested on Jetpack v4.6.x or v4.7.x) on the original Jetson Nano.
 
@@ -11,7 +11,7 @@ Step 2) Copy all install scripts into ~/workspaces/isaac_ros-dev. You should alr
 
 Step 3) change directories to ~/workspaces/isaac_ros-dev and run the command 'sudo chmod +rwx *.sh'
 
-Step 4) run the command './jetson_nano_bringup.sh', this takes a while the first time through
+Step 4) run the command './jetson_nano_bringup.sh', this takes a while the first time through, once in the container, change directory to ros_ws and colcon build (also takes a while). Once it finishes exit the container.
 
 Step 5) Ensure you have the isaac ros docker image listed by running 'docker image ls'
 
