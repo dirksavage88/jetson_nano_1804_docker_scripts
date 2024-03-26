@@ -151,6 +151,9 @@ docker run \
 echo "Attaching to running container: ros2 usb cam"
 docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/ros2_usbcam.sh
 
+echo "Attaching to running container: Image proc"
+docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/isaac_ros_image_proc.sh
+
 echo "Attaching to running container: stereo split"
 docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/side_x_side.sh
 
