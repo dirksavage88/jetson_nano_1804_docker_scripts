@@ -105,12 +105,14 @@ if [[ $PLATFORM == "aarch64" ]]; then
     DOCKER_ARGS+=("-v /usr/src/jetson_multimedia_api:/usr/src/jetson_multimedia_api")
     DOCKER_ARGS+=("-v /opt/nvidia/nsight-systems-cli:/opt/nvidia/nsight-systems-cli")
     DOCKER_ARGS+=("--pid=host")
-
+    DOCKER_ARGS+=("--group-add=i2c")
+    
     # If jtop present, give the container access
     if [[ $(getent group jtop) ]]; then
         DOCKER_ARGS+=("-v /run/jtop.sock:/run/jtop.sock:ro")
         JETSON_STATS_GID="$(getent group jtop | cut -d: -f3)"
         DOCKER_ARGS+=("--group-add $JETSON_STATS_GID")
+
     fi
 fi
 
