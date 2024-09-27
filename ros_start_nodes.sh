@@ -106,7 +106,7 @@ if [[ $PLATFORM == "aarch64" ]]; then
     DOCKER_ARGS+=("-v /opt/nvidia/nsight-systems-cli:/opt/nvidia/nsight-systems-cli")
     DOCKER_ARGS+=("--pid=host")
     DOCKER_ARGS+=("--group-add=i2c")
-    
+
     # If jtop present, give the container access
     if [[ $(getent group jtop) ]]; then
         DOCKER_ARGS+=("-v /run/jtop.sock:/run/jtop.sock:ro")
@@ -158,9 +158,6 @@ docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONT
 
 echo "Attaching to running container: stereo split"
 docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/side_x_side.sh
-
-echo "Attaching to running container: IMU transform"
-docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/px4_imu_transform.sh
 
 echo "Attaching to running container: static tf"
 docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/static_tf.sh

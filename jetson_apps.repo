@@ -23,10 +23,6 @@ repositories:
     type: git
     url: https://github.com/dirksavage88/side_x_side_stereo.git
     version: 1404a848e98c5ba56460cc34a7f6fd68d0279e74
-  imu_transform:
-    type: git
-    url: https://github.com/dakejahl/imu_transform.git
-    version: 33a32da562ed62af21dd39d4284ab7fc1079c8b0
   PX4-Isaac-VIO-bridge:
     type: git
     url: https://github.com/ARK-Electronics/PX4-Isaac-VIO-bridge.git
