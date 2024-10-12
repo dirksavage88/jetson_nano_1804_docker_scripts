@@ -94,9 +94,10 @@ DOCKER_ARGS+=("-v $HOME/.Xauthority:/home/admin/.Xauthority:rw")
 DOCKER_ARGS+=("-e DISPLAY")
 DOCKER_ARGS+=("-e NVIDIA_VISIBLE_DEVICES=all")
 DOCKER_ARGS+=("-e NVIDIA_DRIVER_CAPABILITIES=all")
-DOCKER_ARGS+=("-e FASTRTPS_DEFAULT_PROFILES_FILE=/usr/local/share/middleware_profiles/rtps_udp_profile.xml")
+DOCKER_ARGS+=("-e CYCLONEDDS_URI=file:///workspaces/isaac_ros-dev/cyclonedds.xml")
+#DOCKER_ARGS+=("-e FASTRTPS_DEFAULT_PROFILES_FILE=/usr/local/share/middleware_profiles/rtps_udp_profile.xml")
 DOCKER_ARGS+=("-e ROS_DOMAIN_ID")
-
+DOCKER_ARGS+=("-e RMW_IMPLEMENTATION=rmw_cyclonedds_cpp")
 if [[ $PLATFORM == "aarch64" ]]; then
     DOCKER_ARGS+=("-v /usr/local/cuda-10.2/targets/aarch64-linux/lib/:/usr/local/cuda-10.2/targets/aarch64-linux/lib/")
     DOCKER_ARGS+=("-v /usr/bin/tegrastats:/usr/bin/tegrastats")
@@ -106,7 +107,7 @@ if [[ $PLATFORM == "aarch64" ]]; then
     DOCKER_ARGS+=("-v /opt/nvidia/nsight-systems-cli:/opt/nvidia/nsight-systems-cli")
     DOCKER_ARGS+=("--pid=host")
     DOCKER_ARGS+=("--group-add=i2c")
-
+    
     # If jtop present, give the container access
     if [[ $(getent group jtop) ]]; then
         DOCKER_ARGS+=("-v /run/jtop.sock:/run/jtop.sock:ro")
@@ -167,5 +168,8 @@ docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONT
 
 echo "Attaching to running container: px4_vslam"
 docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/px4_vslam.sh
+
+echo "Attaching to running container: obstacle distance"
+docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/obs_distance.sh
 
 echo "Processes started, exiting."
