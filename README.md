@@ -1,7 +1,7 @@
 # jetson_nano_1804_docker_scripts
-Bring up ROS 2 foxy and docker on the original Jetson Nano
+Bring up ROS 2 and docker on the Jetson Nano/Jetson TX2 NX
 
-This repo is assuming you are using a recent version of Jetpack (tested on Jetpack v4.6.x or v4.7.x) on the original Jetson Nano.
+This repo is assuming you are using a recent version of Jetpack (tested on Jetpack v4.6.x or v4.7.x) on the Jetson Nano or Jetson TX2 NX
 
 If you have not installed/configured the Nvidia Contaainer Toolkit AND Isaac ROS Common **->>>** **STOP** **>>>** **these install scripts will not work until you have successfully installed the Nvidia Container Toolkit and ran the 'run_dev.sh' script in Isaac ROS Common:** https://github.com/dirksavage88/isaac_ros_common
 
