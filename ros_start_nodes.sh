@@ -107,6 +107,7 @@ if [[ $PLATFORM == "aarch64" ]]; then
     DOCKER_ARGS+=("-v /opt/nvidia/nsight-systems-cli:/opt/nvidia/nsight-systems-cli")
     DOCKER_ARGS+=("--pid=host")
     DOCKER_ARGS+=("--group-add=i2c")
+    DOCKER_ARGS+=("--group-add=dialout")
     
     # If jtop present, give the container access
     if [[ $(getent group jtop) ]]; then
@@ -169,7 +170,18 @@ docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONT
 echo "Attaching to running container: px4_vslam"
 docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/px4_vslam.sh
 
+echo "Attaching to running container: multi distance array"
+docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/multi_array_distance.sh
+
+sleep 5
+
 echo "Attaching to running container: obstacle distance"
-docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/obs_distance.sh
+docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/obs_distance_front.sh
+
+docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/obs_distance_right.sh
+
+docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/obs_distance_rear.sh
+
+docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/obs_distance_left.sh
 
 echo "Processes started, exiting."
