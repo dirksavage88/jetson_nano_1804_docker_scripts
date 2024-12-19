@@ -1,9 +1,6 @@
 #!/bin/bash
 echo "Starting Obstacle Distance Node"
 # Open up the i2c permissions
-#sudo groupadd i2c
-#sudo chown :i2c /dev/i2c-0
-#sudo chmod g+rw /dev/i2c-0
 sudo usermod -aG i2c $USER
 
 source /opt/ros/foxy/setup.bash

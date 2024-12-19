@@ -173,7 +173,7 @@ docker exec -d -u admin --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONT
 echo "Attaching to running container: multi distance array"
 docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/multi_array_distance.sh
 
-sleep 5
+sleep 1
 
 echo "Attaching to running container: obstacle distance"
 docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/obs_distance_front.sh
@@ -183,5 +183,7 @@ docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTA
 docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/obs_distance_rear.sh
 
 docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/obs_distance_left.sh
+
+docker exec -d -u root --workdir $CONTAINER_WS_DIR/ros_ws $CONTAINER_NAME $CONTAINER_WS_DIR/px4_obstacle_distance.sh
 
 echo "Processes started, exiting."
